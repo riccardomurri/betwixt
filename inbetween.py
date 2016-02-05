@@ -96,19 +96,26 @@ def _make_infix_operator_class(lmeth, rmeth):
 
 ## infix operator classes, highest priority first
 
-@_make_infix_operator_class('__rpow__', '__pow__')
-class DoubleStarDelimitedInfixOperator:
-    pass
+# Need different code here because the order of operands in ``pow()``
+# is reversed compared to the other operations.  It's just simpler to
+# explicitly write the code here, than extend the "maker" methods to
+# support this special case.
+class DoubleStarDelimitedInfixOperator(_BaseInfixOperator):
+    class _PartialOperation(_BasePartialOperation):
+        def __rpow__(self, rhs):
+            return self._op(rhs, self._lhs)
+    def __pow__(self, other):
+        return self._PartialOperation(self._op, other)
 
 
 @_make_infix_operator_class('__rmul__', '__mul__')
 class StarDelimitedInfixOperator:
     pass
 
-# Need different code here to support both old-style division and "true"
-# division (``from __future__ import division``).  It's just simpler
-# to explicitly write the code here, than extend the "maker" methods
-# to support this special case.
+# Likewise, different code is needed here to support *both* old-style
+# division and "true" division (``from __future__ import division``).
+# It's just simpler to explicitly write the code here, than extend the
+# "maker" methods to support this special case.
 class SlashDelimitedInfixOperator(_BaseInfixOperator):
     class _PartialOperation(_BasePartialOperation):
         def __div__(self, rhs):
@@ -167,8 +174,8 @@ if '__main__' == __name__:
 
     from fnmatch import fnmatch
 
-    #matches = DoubleStarDelimitedInfixOperator(fnmatch)
-    #assert ('foo.txt' **matches** '*.txt')
+    matches = DoubleStarDelimitedInfixOperator(fnmatch)
+    assert ('foo.txt' **matches** '*.txt')
 
     matches = StarDelimitedInfixOperator(fnmatch)
     assert ('foo.txt' *matches* '*.txt')
