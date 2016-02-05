@@ -3,7 +3,7 @@ Easily make named infix binary operators in Python.
 Demo time::
 
   # the only useful function in the module
-  >>> from ibo import make_infix_operator
+  >>> from inbetween import make_infix_operator
 
   # any function of 2 arguments would do
   >>> from fnmatch import fnmatch
