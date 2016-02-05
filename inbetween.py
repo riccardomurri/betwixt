@@ -17,7 +17,7 @@
 #
 
 # make coding more python3-ish, must be the first statement
-from __future__ import (absolute_import, print_function)
+from __future__ import (absolute_import, division, print_function)
 
 
 ## module doc and other metadata
@@ -105,9 +105,20 @@ class DoubleStarDelimitedInfixOperator:
 class StarDelimitedInfixOperator:
     pass
 
-@_make_infix_operator_class('__rdiv__', '__div__')
-class SlashDelimitedInfixOperator:
-    pass
+# Need different code here to support both old-style division and "true"
+# division (``from __future__ import division``).  It's just simpler
+# to explicitly write the code here, than extend the "maker" methods
+# to support this special case.
+class SlashDelimitedInfixOperator(_BaseInfixOperator):
+    class _PartialOperation(_BasePartialOperation):
+        def __div__(self, rhs):
+            return self._op(self._lhs, rhs)
+        def __truediv__(self, rhs):
+            return self._op(self._lhs, rhs)
+    def __rdiv__(self, other):
+        return self._PartialOperation(self._op, other)
+    def __rtruediv__(self, other):
+        return self._PartialOperation(self._op, other)
 
 @_make_infix_operator_class('__rfloordiv__', '__floordiv__')
 class DoubleSlashDelimitedInfixOperator:
@@ -171,8 +182,8 @@ if '__main__' == __name__:
     matches = CaretDelimitedInfixOperator(fnmatch)
     assert ('foo.txt' ^matches^ '*.txt')
 
-    #matches = SlashDelimitedInfixOperator(fnmatch)
-    #assert ('foo.txt' /matches/ '*.txt')
+    matches = SlashDelimitedInfixOperator(fnmatch)
+    assert ('foo.txt' /matches/ '*.txt')
 
     matches = DoubleSlashDelimitedInfixOperator(fnmatch)
     assert ('foo.txt' //matches// '*.txt')
@@ -187,6 +198,9 @@ if '__main__' == __name__:
 
     matches = make_infix_operator(fnmatch, '*')
     assert ('foo.txt' *matches* '*.txt')
+
+    matches = make_infix_operator(fnmatch, '/')
+    assert ('foo.txt' /matches/ '*.txt')
 
     matches = make_infix_operator(fnmatch, '//')
     assert ('foo.txt' //matches// '*.txt')
