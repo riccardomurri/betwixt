@@ -1,9 +1,36 @@
 #! /usr/bin/env python
+#
+# Copyright (C) 2016 Riccardo Murri <riccardo.murri@gmail.com>
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU Lesser General Public License as
+# published by the Free Software Foundation, either version 3 of the
+# License, or (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU Lesser General Public
+# License along with this program.  If not, see <http://www.gnu.org/licenses/>.
+#
+
+# make coding more python3-ish, must be the first statement
+from __future__ import (absolute_import, print_function)
+
+
+## module doc and other metadata
 """
 Infix binary operators.
 
 Inspired by http://code.activestate.com/recipes/384122-infix-operators/
 """
+__docformat__ = 'reStructuredText'
+__author__ = ('Riccardo Murri <riccardo.murri@gmail.com>')
+
+
+## declare public API
 
 __all__ = [
     'make_infix_operator',
@@ -17,6 +44,8 @@ __all__ = [
     'BarDelimitedInfixOperator',
 ]
 
+
+## "maker" code
 
 class _BaseInfixOperator(object):
     __slots__ = ['_op']
@@ -115,7 +144,10 @@ def make_infix_operator(func, delimiter):
     return _delimiter_to_class[delimiter](func)
 
 
+## run tests
+
 if '__main__' == __name__:
+
     from fnmatch import fnmatch
 
     #matches = DoubleStarDelimitedInfixOperator(fnmatch)
