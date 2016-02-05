@@ -38,6 +38,7 @@ __all__ = [
     'DoubleStarDelimitedInfixOperator',
     'StarDelimitedInfixOperator',
     'SlashDelimitedInfixOperator',
+    'DoubleSlashDelimitedInfixOperator',
     'PlusDelimitedInfixOperator',
     'AngleDelimitedInfixOperator',
     'CaretDelimitedInfixOperator',
@@ -108,6 +109,10 @@ class StarDelimitedInfixOperator:
 class SlashDelimitedInfixOperator:
     pass
 
+@_make_infix_operator_class('__rfloordiv__', '__floordiv__')
+class DoubleSlashDelimitedInfixOperator:
+    pass
+
 
 @_make_infix_operator_class('__rlshift__', '__rshift__')
 class AngleDelimitedInfixOperator:
@@ -133,6 +138,7 @@ _delimiter_to_class = {
     '**': DoubleStarDelimitedInfixOperator,
     '*':  StarDelimitedInfixOperator,
     '/':  SlashDelimitedInfixOperator,
+    '//': DoubleSlashDelimitedInfixOperator,
     '+':  PlusDelimitedInfixOperator,
     '<<': AngleDelimitedInfixOperator,
     '^':  CaretDelimitedInfixOperator,
@@ -165,8 +171,11 @@ if '__main__' == __name__:
     matches = CaretDelimitedInfixOperator(fnmatch)
     assert ('foo.txt' ^matches^ '*.txt')
 
-    matches = SlashDelimitedInfixOperator(fnmatch)
-    assert ('foo.txt' /matches/ '*.txt')
+    #matches = SlashDelimitedInfixOperator(fnmatch)
+    #assert ('foo.txt' /matches/ '*.txt')
+
+    matches = DoubleSlashDelimitedInfixOperator(fnmatch)
+    assert ('foo.txt' //matches// '*.txt')
 
     matches = AngleDelimitedInfixOperator(fnmatch)
     assert ('foo.txt' <<matches>> '*.txt')
@@ -179,8 +188,8 @@ if '__main__' == __name__:
     matches = make_infix_operator(fnmatch, '*')
     assert ('foo.txt' *matches* '*.txt')
 
-    matches = make_infix_operator(fnmatch, '/')
-    assert ('foo.txt' /matches/ '*.txt')
+    matches = make_infix_operator(fnmatch, '//')
+    assert ('foo.txt' //matches// '*.txt')
 
     matches = make_infix_operator(fnmatch, '<<')
     assert ('foo.txt' <<matches>> '*.txt')
