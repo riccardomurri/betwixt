@@ -64,22 +64,34 @@ Easily make named infix binary operators in Python.
 Demo time::
 
   # the only useful function in the module
-  >>> from betwixt import make_infix_operator
+  >>> from betwixt import infix_operator
 
   # any function of 2 arguments would do
   >>> from fnmatch import fnmatch
 
   # make the binary function into an operator, delimited by `*`
-  >>> matches = make_infix_operator('*', fnmatch)
+  >>> matches = infix_operator('*', fnmatch)
 
   # use it
   >>> 'foo.txt' *matches* '*.txt'
   True
 
   # other delimiters can be used
-  >>> matches = make_infix_operator('|', fnmatch)
+  >>> matches = infix_operator('|', fnmatch)
   >>> 'foo.txt' |matches| '*.txt'
   True
+
+A decorator form can also be used::
+
+  >>> @infix_operator('|')
+  ... def contains(left, right):
+  ...   return right in left
+
+  >>> [1, 2, 3] |contains| 1
+  True
+
+  >>> [1, 2, 3] |contains| 0
+  False
 
 The idea was taken from
 http://code.activestate.com/recipes/384122-infix-operators/ and by a

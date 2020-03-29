@@ -32,7 +32,7 @@ __version__ = '1.0.0'
 ## declare public API
 
 __all__ = [
-    'make_infix_operator',
+    'infix_operator',
     # just in case some masochist wants to access these directly ...
     'DoubleStarDelimitedInfixOperator',
     'StarDelimitedInfixOperator',
@@ -162,6 +162,16 @@ _delimiter_to_class = {
     '|':  BarDelimitedInfixOperator,
 }
 
-def make_infix_operator(delimiter, func):
+def infix_operator(delimiter, *func):
+    """
+    """
     assert delimiter in _delimiter_to_class
-    return _delimiter_to_class[delimiter](func)
+    assert len(func) in [0, 1]
+    # pylint: disable=no-else-return
+    if func:
+        # make operator
+        return _delimiter_to_class[delimiter](func[0])
+    else:
+        # decorate a function
+        return _delimiter_to_class[delimiter]
+
