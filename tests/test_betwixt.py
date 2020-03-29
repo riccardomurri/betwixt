@@ -51,33 +51,33 @@ class Test_make_infix_operator(object):
     """
 
     def test_star_delimited_operator(self):
-        matches = make_infix_operator(fnmatch, '*')
+        matches = make_infix_operator('*', fnmatch)
         assert ('foo.txt' *matches* '*.txt')
 
     def test_double_star_delimited_operator(self):
-        matches = make_infix_operator(fnmatch, '**')
+        matches = make_infix_operator('**', fnmatch)
         assert ('foo.txt' **matches** '*.txt')
 
     def test_slash_delimited_operator(self):
-        matches = make_infix_operator(fnmatch, '/')
+        matches = make_infix_operator('/', fnmatch)
         assert ('foo.txt' /matches/ '*.txt')
 
     def test_double_slash_delimited_operator(self):
-        matches = make_infix_operator(fnmatch, '//')
+        matches = make_infix_operator('//', fnmatch)
         assert ('foo.txt' //matches// '*.txt')
 
     def test_angle_delimited_operator(self):
-        matches = make_infix_operator(fnmatch, '<<')
+        matches = make_infix_operator('<<', fnmatch)
         assert ('foo.txt' <<matches>> '*.txt')
 
     def test_plus_delimited_operator(self):
-        matches = make_infix_operator(fnmatch, '+')
+        matches = make_infix_operator('+', fnmatch)
         assert ('foo.txt' +matches+ '*.txt')
 
     def test_caret_delimited_operator(self):
-        matches = make_infix_operator(fnmatch, '^')
+        matches = make_infix_operator('^', fnmatch)
         assert ('foo.txt' ^matches^ '*.txt')
 
     def test_bar_delimited_operator(self):
-        matches = make_infix_operator(fnmatch, '|')
+        matches = make_infix_operator('|', fnmatch)
         assert ('foo.txt' |matches| '*.txt')

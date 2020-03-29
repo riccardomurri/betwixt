@@ -163,6 +163,6 @@ _delimiter_to_class = {
     '|':  BarDelimitedInfixOperator,
 }
 
-def make_infix_operator(func, delimiter):
+def make_infix_operator(delimiter, func):
     assert delimiter in _delimiter_to_class
     return _delimiter_to_class[delimiter](func)

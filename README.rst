@@ -70,14 +70,14 @@ Demo time::
   >>> from fnmatch import fnmatch
 
   # make the binary function into an operator, delimited by `*`
-  >>> matches = make_infix_operator(fnmatch, '*')
+  >>> matches = make_infix_operator('*', fnmatch)
 
   # use it
   >>> 'foo.txt' *matches* '*.txt'
   True
 
   # other delimiters can be used
-  >>> matches = make_infix_operator(fnmatch, '|')
+  >>> matches = make_infix_operator('|', fnmatch)
   >>> 'foo.txt' |matches| '*.txt'
   True
 
