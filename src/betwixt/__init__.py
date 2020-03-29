@@ -1,5 +1,10 @@
 #! /usr/bin/env python
 #
+"""
+Infix binary operators.
+
+Inspired by http://code.activestate.com/recipes/384122-infix-operators/
+"""
 # Copyright (C) 2016-2020 Riccardo Murri <riccardo.murri@gmail.com>
 #
 # This program is free software: you can redistribute it and/or modify
@@ -20,13 +25,7 @@
 from __future__ import (absolute_import, division, print_function)
 
 
-## module doc and other metadata
-"""
-Infix binary operators.
-
-Inspired by http://code.activestate.com/recipes/384122-infix-operators/
-"""
-
+## module metadata
 __version__ = '1.0.0'
 
 
