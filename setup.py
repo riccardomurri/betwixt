@@ -25,7 +25,7 @@ def read(*names, **kwargs):
 
 
 setup(
-    name='inbetween',
+    name='betwixt',
     version='1.0.0',
     license='GNU Lesser General Public License v3 or later (LGPLv3+)',
     description='Infix operators for Python',
@@ -35,7 +35,7 @@ setup(
     ),
     author='Riccardo Murri',
     author_email='riccardo.murri@gmail.com',
-    url='https://github.com/riccardomurri/inbetween',
+    url='https://github.com/riccardomurri/betwixt',
     packages=find_packages('src'),
     package_dir={'': 'src'},
     py_modules=[splitext(basename(path))[0] for path in glob('src/*.py')],
@@ -66,9 +66,9 @@ setup(
         'Topic :: Utilities',
     ],
     project_urls={
-        'Documentation': 'https://inbetween.readthedocs.io/',
-        'Changelog': 'https://inbetween.readthedocs.io/en/latest/changelog.html',
-        'Issue Tracker': 'https://github.com/riccardomurri/inbetween/issues',
+        'Documentation': 'https://betwixt.readthedocs.io/',
+        'Changelog': 'https://betwixt.readthedocs.io/en/latest/changelog.html',
+        'Issue Tracker': 'https://github.com/riccardomurri/betwixt/issues',
     },
     keywords=[
         # eg: 'keyword1', 'keyword2', 'keyword3',

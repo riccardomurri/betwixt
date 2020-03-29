@@ -16,45 +16,45 @@ Overview
     * - package
       - | |version| |wheel| |supported-versions| |supported-implementations|
         | |commits-since|
-.. |docs| image:: https://readthedocs.org/projects/inbetween/badge/?style=flat
-    :target: https://readthedocs.org/projects/inbetween
+.. |docs| image:: https://readthedocs.org/projects/betwixt/badge/?style=flat
+    :target: https://readthedocs.org/projects/betwixt
     :alt: Documentation Status
 
-.. |travis| image:: https://travis-ci.org/riccardomurri/inbetween.svg?branch=master
+.. |travis| image:: https://travis-ci.org/riccardomurri/betwixt.svg?branch=master
     :alt: Travis-CI Build Status
-    :target: https://travis-ci.org/riccardomurri/inbetween
+    :target: https://travis-ci.org/riccardomurri/betwixt
 
-.. |appveyor| image:: https://ci.appveyor.com/api/projects/status/github/riccardomurri/inbetween?branch=master&svg=true
+.. |appveyor| image:: https://ci.appveyor.com/api/projects/status/github/riccardomurri/betwixt?branch=master&svg=true
     :alt: AppVeyor Build Status
-    :target: https://ci.appveyor.com/project/riccardomurri/inbetween
+    :target: https://ci.appveyor.com/project/riccardomurri/betwixt
 
-.. |requires| image:: https://requires.io/github/riccardomurri/inbetween/requirements.svg?branch=master
+.. |requires| image:: https://requires.io/github/riccardomurri/betwixt/requirements.svg?branch=master
     :alt: Requirements Status
-    :target: https://requires.io/github/riccardomurri/inbetween/requirements/?branch=master
+    :target: https://requires.io/github/riccardomurri/betwixt/requirements/?branch=master
 
-.. |version| image:: https://img.shields.io/pypi/v/inbetween.svg
+.. |version| image:: https://img.shields.io/pypi/v/betwixt.svg
     :alt: PyPI Package latest release
-    :target: https://pypi.org/project/inbetween
+    :target: https://pypi.org/project/betwixt
 
-.. |commits-since| image:: https://img.shields.io/github/commits-since/riccardomurri/inbetween/v1.0.0.svg
+.. |commits-since| image:: https://img.shields.io/github/commits-since/riccardomurri/betwixt/v1.0.0.svg
     :alt: Commits since latest release
-    :target: https://github.com/riccardomurri/inbetween/compare/v1.0.0...master
+    :target: https://github.com/riccardomurri/betwixt/compare/v1.0.0...master
 
-.. |wheel| image:: https://img.shields.io/pypi/wheel/inbetween.svg
+.. |wheel| image:: https://img.shields.io/pypi/wheel/betwixt.svg
     :alt: PyPI Wheel
-    :target: https://pypi.org/project/inbetween
+    :target: https://pypi.org/project/betwixt
 
-.. |supported-versions| image:: https://img.shields.io/pypi/pyversions/inbetween.svg
+.. |supported-versions| image:: https://img.shields.io/pypi/pyversions/betwixt.svg
     :alt: Supported versions
-    :target: https://pypi.org/project/inbetween
+    :target: https://pypi.org/project/betwixt
 
-.. |supported-implementations| image:: https://img.shields.io/pypi/implementation/inbetween.svg
+.. |supported-implementations| image:: https://img.shields.io/pypi/implementation/betwixt.svg
     :alt: Supported implementations
-    :target: https://pypi.org/project/inbetween
+    :target: https://pypi.org/project/betwixt
 
-.. |scrutinizer| image:: https://img.shields.io/scrutinizer/g/riccardomurri/inbetween/master.svg
+.. |scrutinizer| image:: https://img.shields.io/scrutinizer/g/riccardomurri/betwixt/master.svg
     :alt: Scrutinizer Status
-    :target: https://scrutinizer-ci.com/g/riccardomurri/inbetween/
+    :target: https://scrutinizer-ci.com/g/riccardomurri/betwixt/
 
 
 .. end-badges
@@ -64,7 +64,7 @@ Easily make named infix binary operators in Python.
 Demo time::
 
   # the only useful function in the module
-  >>> from inbetween import make_infix_operator
+  >>> from betwixt import make_infix_operator
 
   # any function of 2 arguments would do
   >>> from fnmatch import fnmatch
@@ -92,13 +92,13 @@ Installation
 
 ::
 
-    pip install inbetween
+    pip install betwixt
 
 Documentation
 =============
 
 
-https://inbetween.readthedocs.io/
+https://betwixt.readthedocs.io/
 
 
 Development

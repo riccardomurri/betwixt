@@ -1,9 +1,9 @@
-inbetween
+betwixt
 =========
 
 .. testsetup::
 
-    from inbetween import *
+    from betwixt import *
 
-.. automodule:: inbetween
+.. automodule:: betwixt
     :members:

@@ -1,6 +1,6 @@
 #! /usr/bin/env python
 #
-# Copyright (C) 2016 Riccardo Murri <riccardo.murri@gmail.com>
+# Copyright (C) 2016-2020 Riccardo Murri <riccardo.murri@gmail.com>
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Lesser General Public License as
@@ -26,8 +26,8 @@ Infix binary operators.
 
 Inspired by http://code.activestate.com/recipes/384122-infix-operators/
 """
-__docformat__ = 'reStructuredText'
-__author__ = ('Riccardo Murri <riccardo.murri@gmail.com>')
+
+__version__ = '1.0.0'
 
 
 ## declare public API

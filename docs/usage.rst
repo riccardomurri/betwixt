@@ -2,6 +2,6 @@
 Usage
 =====
 
-To use inbetween in a project::
+To use betwixt in a project::
 
         import inbetween
