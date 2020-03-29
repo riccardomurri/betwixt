@@ -93,6 +93,24 @@ A decorator form can also be used::
   >>> [1, 2, 3] |contains| 0
   False
 
+Finally, ``betwixt`` is provided as a shorter (and, perhaps, more
+expressive) alias to ``infix_operator``::
+
+  >>> from betwixt import betwixt
+
+  >>> @betwixt('*')
+  ... def joining(left, right):
+  ...   return left.join(right)
+
+  >>> '_' *joining* ['a', 'b', 'c']
+  'a_b_c'
+
+  >>> split_at = betwixt('//', lambda lhs, rhs: lhs.split(rhs))
+
+  >>> 'a_b_c' //split_at// '_'
+  ['a', 'b', 'c']
+
+
 The idea was taken from
 http://code.activestate.com/recipes/384122-infix-operators/ and by a
 similar C++ hack whose code on the web I cannot find any more, but no

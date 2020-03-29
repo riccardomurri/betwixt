@@ -32,6 +32,7 @@ __version__ = '1.0.0'
 ## declare public API
 
 __all__ = [
+    'betwixt',
     'infix_operator',
     # just in case some masochist wants to access these directly ...
     'DoubleStarDelimitedInfixOperator',
@@ -175,3 +176,7 @@ def infix_operator(delimiter, *func):
         # decorate a function
         return _delimiter_to_class[delimiter]
 
+betwixt = infix_operator
+"""
+Alias for `infix_operator` (which see).
+"""
