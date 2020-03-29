@@ -110,6 +110,8 @@ expressive) alias to ``infix_operator``::
   >>> 'a_b_c' //split_at// '_'
   ['a', 'b', 'c']
 
+All these example operators and a few more are available in module
+``betwixt.examples``.
 
 The idea was taken from
 http://code.activestate.com/recipes/384122-infix-operators/ and by a
